@@ -12,4 +12,3 @@ const alicesharedKey = alice.computeSecret(BobpublicKey);
 const BobsharedKey = Bob.computeSecret(alicepublicKey);
 console.log(alicesharedKey);
 console.log(BobsharedKey);
-console.log(alicesharedKey == BobsharedKey);
