@@ -1,0 +1,15 @@
+const crypto = require('crypto');
+//console.log(crypto.getCurves());
+const alice= crypto.createECDH('secp256k1');
+alice.generateKeys();
+const Bob= crypto.createECDH('secp256k1');
+Bob.generateKeys();
+const alicepublicKey = alice.getPublicKey();
+console.log(alicepublicKey);
+const BobpublicKey = Bob.getPublicKey();
+console.log(BobpublicKey);
+const alicesharedKey = alice.computeSecret(BobpublicKey);
+const BobsharedKey = Bob.computeSecret(alicepublicKey);
+console.log(alicesharedKey);
+console.log(BobsharedKey);
+console.log(alicesharedKey == BobsharedKey);
